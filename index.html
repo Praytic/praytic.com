@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Praytic's Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <h1>Praytic's Portfolio</h1>
+        <p>A curated collection of my most successful projects. Only featuring apps with 10+ GitHub stars.</p>
+    </header>
+
+    <main class="portfolio-grid">
+        <!-- YouTD 2 - 163 stars -->
+        <article class="app-card discovered" tabindex="0" data-url="https://github.com/Praytic/youtd2">
+            <div class="card-content">
+                <div class="card-icon">🏰</div>
+                <h3 class="card-title">YouTD 2</h3>
+                <p class="card-description">Classic community-driven session-based Tower Defense game with RPG elements built in Godot. 163 ⭐</p>
+                <div class="social-badges">
+                    <a href="https://github.com/Praytic/youtd2" class="social-badge github" target="_blank" aria-label="View on GitHub"></a>
+                    <a href="https://praytic.itch.io/youtd2" class="social-badge itch" target="_blank" aria-label="Play on itch.io"></a>
+                    <a href="https://youtd2.com" class="social-badge youtube" target="_blank" aria-label="Visit website"></a>
+                </div>
+            </div>
+            <div class="status-badge">Live</div>
+        </article>
+
+        <!-- ChatGPT Notion Auto-tagging - 18 stars -->
+        <article class="app-card discovered" tabindex="0" data-url="https://github.com/Praytic/chatgpt-notion-auto-tagging">
+            <div class="card-content">
+                <div class="card-icon">🏷️</div>
+                <h3 class="card-title">ChatGPT Notion Tagger</h3>
+                <p class="card-description">AI-powered integration to automatically tag and categorize web pages in Notion using ChatGPT. 18 ⭐</p>
+                <div class="social-badges">
+                    <a href="https://github.com/Praytic/chatgpt-notion-auto-tagging" class="social-badge github" target="_blank" aria-label="View on GitHub"></a>
+                </div>
+            </div>
+            <div class="status-badge">Live</div>
+        </article>
+
+        <!-- Undiscovered Apps (Under Development) -->
+        <article class="app-card undiscovered" tabindex="0">
+            <div class="card-content">
+                <div class="card-icon">❓</div>
+                <h3 class="card-title">Neural Network Visualizer</h3>
+                <p class="card-description">Interactive neural network training visualization tool with real-time graph analytics</p>
+                <div class="social-badges">
+                    <div class="social-badge github"></div>
+                    <div class="social-badge itch"></div>
+                </div>
+            </div>
+            <div class="status-badge">Dev</div>
+        </article>
+
+        <article class="app-card undiscovered" tabindex="0">
+            <div class="card-content">
+                <div class="card-icon">❓</div>
+                <h3 class="card-title">Blockchain Portfolio Tracker</h3>
+                <p class="card-description">Comprehensive cryptocurrency portfolio management app with advanced analytics</p>
+                <div class="social-badges">
+                    <div class="social-badge github"></div>
+                    <div class="social-badge youtube"></div>
+                </div>
+            </div>
+            <div class="status-badge">Dev</div>
+        </article>
+
+        <article class="app-card undiscovered" tabindex="0">
+            <div class="card-content">
+                <div class="card-icon">❓</div>
+                <h3 class="card-title">AR Furniture Planner</h3>
+                <p class="card-description">Augmented reality interior design and furniture placement tool for mobile devices</p>
+                <div class="social-badges">
+                    <div class="social-badge github"></div>
+                    <div class="social-badge itch"></div>
+                </div>
+            </div>
+            <div class="status-badge">Dev</div>
+        </article>
+
+        <article class="app-card undiscovered" tabindex="0">
+            <div class="card-content">
+                <div class="card-icon">❓</div>
+                <h3 class="card-title">Real-time Code Collaboration</h3>
+                <p class="card-description">Next-generation collaborative coding environment with AI assistance and live sharing</p>
+                <div class="social-badges">
+                    <div class="social-badge github"></div>
+                    <div class="social-badge youtube"></div>
+                </div>
+            </div>
+            <div class="status-badge">Dev</div>
+        </article>
+    </main>
+
+    <script>
+        // Pure CSS/HTML Portfolio - Minimal JavaScript for interaction only
+        document.addEventListener('DOMContentLoaded', function() {
+            // Handle card clicks for discovered apps (but not social badges)
+            const discoveredCards = document.querySelectorAll('.app-card.discovered');
+            
+            discoveredCards.forEach(card => {
+                card.addEventListener('click', function(e) {
+                    // Don't navigate if clicking on social badges
+                    if (e.target.closest('.social-badge')) {
+                        return;
+                    }
+                    
+                    const url = this.getAttribute('data-url');
+                    if (url) {
+                        window.open(url, '_blank');
+                    }
+                });
+
+                // Keyboard navigation support
+                card.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        // Don't navigate if focus is on social badge
+                        if (e.target.closest('.social-badge')) {
+                            return;
+                        }
+                        this.click();
+                    }
+                });
+            });
+
+            // Handle undiscovered card interactions
+            const undiscoveredCards = document.querySelectorAll('.app-card.undiscovered');
+            
+            undiscoveredCards.forEach(card => {
+                card.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    // Add shake animation
+                    this.classList.add('shake');
+                    
+                    // Remove shake class after animation
+                    setTimeout(() => {
+                        this.classList.remove('shake');
+                    }, 600);
+                });
+
+                // Keyboard support for undiscovered cards
+                card.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        this.click();
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

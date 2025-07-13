@@ -1,0 +1,25 @@
+runtime: python39
+
+handlers:
+# Serve the main page
+- url: /
+  static_files: index.html
+  upload: index.html
+  secure: always
+
+# Serve any other static files
+- url: /(.*)
+  static_files: \1
+  upload: (.*)
+  secure: always
+
+# Automatic scaling configuration
+automatic_scaling:
+  min_instances: 0
+  max_instances: 5
+  min_idle_instances: 0
+  max_idle_instances: 1
+
+# Environment variables (optional)
+env_variables:
+  PORTFOLIO_VERSION: "1.0"
