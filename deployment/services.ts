@@ -29,3 +29,7 @@ export const iamService = new gcp.projects.Service("iam", {
   service: "iam.googleapis.com",
   disableOnDestroy: false,
 });
+
+export const stsService = new gcp.projects.Service("sts", {
+  service: "sts.googleapis.com",
+});

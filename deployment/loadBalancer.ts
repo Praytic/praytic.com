@@ -3,7 +3,7 @@ import * as portfolio from "./portfolio";
 import * as places from "./places";
 import {computeService} from "./services"
 
-const urlMap = new gcp.compute.URLMap("url-map", {
+export const urlMap = new gcp.compute.URLMap("url-map", {
   defaultService: portfolio.website.backendBucket.selfLink,
   hostRules: [
     {

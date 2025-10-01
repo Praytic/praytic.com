@@ -1,10 +1,13 @@
 config:
-  default:default:
+  app:default:
     name: portfolio
+    repo: Praytic/praytic.com
   app:grockery:
     name: grockery
+    repo: Praytic/Grockery
   app:places:
     name: places
+    repo: Praytic/places
   gcp:project: praytic-global-473807
   gcp:region: us-west2
   gcp:zone: us-west2-a

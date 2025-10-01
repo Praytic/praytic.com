@@ -3,6 +3,7 @@ import {ResourceUtils} from "../common";
 
 type App = {
   name: string;
+  repo: string;
 }
 
 const gcpConfig = new pulumi.Config("gcp");
