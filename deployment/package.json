@@ -1,0 +1,13 @@
+{
+    "name": "pulumi-deployment",
+    "main": "index.ts",
+    "devDependencies": {
+        "@types/node": "^18",
+        "eslint-plugin-import": "^2.32.0",
+        "typescript": "^5.0.0"
+    },
+    "dependencies": {
+        "@pulumi/gcp": "^9.0.0",
+        "@pulumi/pulumi": "^3.113.0"
+    }
+}

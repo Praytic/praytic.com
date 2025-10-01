@@ -1,0 +1,12 @@
+config:
+  default:default:
+    name: portfolio
+  app:grockery:
+    name: grockery
+  app:places:
+    name: places
+  gcp:project: praytic-global-473807
+  gcp:region: us-west2
+  gcp:zone: us-west2-a
+  web:domain: praytic.com
+

@@ -1,0 +1,13 @@
+import * as pulumi from "@pulumi/pulumi";
+import {ResourceUtils} from "../common";
+
+type App = {
+  name: string;
+}
+
+const gcpConfig = new pulumi.Config("gcp");
+const appConfig = new pulumi.Config("app").requireObject<App>("grockery")
+
+export const project = gcpConfig.require("project");
+export const app = appConfig
+export const utils = new ResourceUtils(app.name)
