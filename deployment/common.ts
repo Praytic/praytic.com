@@ -1,15 +1,15 @@
 import {ResourceOptions} from "@pulumi/pulumi";
 import * as gcp from "@pulumi/gcp";
 import {computeService, storageService} from "./services"
+import * as pulumi from "@pulumi/pulumi";
 
 export class ResourceUtils {
   constructor(
     private appName: string
   ) {}
 
-  createBucket(options?: ResourceOptions): gcp.storage.Bucket {
+  createWebBucket(options?: ResourceOptions): gcp.storage.Bucket {
     const bucket = new gcp.storage.Bucket(`${this.appName}-bucket`, {
-      name: `${this.appName}-bucket`,
       location: "US",
       forceDestroy: true,
       uniformBucketLevelAccess: true,

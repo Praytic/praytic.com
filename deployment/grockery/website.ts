@@ -4,7 +4,7 @@ import {cloudFunction} from "./cloudFunction"
 
 const webConfig = new pulumi.Config("web");
 
-const bucket = utils.createBucket()
+const bucket = utils.createWebBucket()
 const bucketIamBinding = utils.createBucketIAMBinding(bucket)
 export const backendBucket = utils.createBackendBucket(bucket)
 const neg = utils.createNetworkEndpointGroup(cloudFunction)

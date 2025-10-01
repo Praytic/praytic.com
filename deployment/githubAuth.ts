@@ -36,6 +36,7 @@ const workloadIdentityProvider = new gcp.iam.WorkloadIdentityPoolProvider("githu
     "attribute.actor": "assertion.actor",
     "attribute.aud": "assertion.aud",
   },
+  attributeCondition: `attribute.repository in ['${portfolio.repo}', '${places.repo}']`,
   oidc: {
     issuerUri: "https://token.actions.githubusercontent.com",
   },
@@ -52,6 +53,6 @@ const workloadIdentityBinding = new gcp.serviceaccount.IAMBinding("github-action
 // Output the values needed for GitHub Secrets
 export const outputs = {
   serviceAccountEmail: githubActionsServiceAccount.email,
-  workloadIdentityProvider: pulumi.interpolate`projects/${project}/locations/global/workloadIdentityPools/${workloadIdentityPool.workloadIdentityPoolId}/providers/${workloadIdentityProvider.workloadIdentityPoolProviderId}`,
+  workloadIdentityProvider: workloadIdentityProvider.name,
   projectId: project,
 };
