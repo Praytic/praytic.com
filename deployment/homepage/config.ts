@@ -6,7 +6,7 @@ type App = {
   repo: string;
 }
 
-const appConfig = new pulumi.Config("app").requireObject<App>("default")
+const appConfig = new pulumi.Config("app").requireObject<App>("homepage")
 
 export const app = appConfig
 export const utils = new ResourceUtils(app.name)
