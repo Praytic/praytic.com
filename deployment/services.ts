@@ -15,6 +15,11 @@ export const cloudRunService = new gcp.projects.Service("cloud-run", {
   disableOnDestroy: false,
 });
 
+export const firestoreService = new gcp.projects.Service("firestore", {
+  service: "firestore.googleapis.com",
+  disableOnDestroy: false,
+});
+
 export const firebaseService = new gcp.projects.Service("firebase", {
   service: "firebase.googleapis.com",
   disableOnDestroy: false,
