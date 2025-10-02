@@ -2,7 +2,7 @@ import * as gcp from "@pulumi/gcp";
 import * as pulumi from "@pulumi/pulumi";
 import {iamService, stsService} from "./services";
 import {app as places} from "./places/config"
-import {app as portfolio} from "./portfolio/config"
+import {app as portfolio} from "./homepage/config"
 
 const gcpConfig = new pulumi.Config("gcp");
 const project = gcpConfig.require("project");

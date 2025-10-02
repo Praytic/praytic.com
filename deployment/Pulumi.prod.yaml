@@ -1,6 +1,6 @@
 config:
-  app:default:
-    name: portfolio
+  app:homepage:
+    name: homepage
     repo: Praytic/praytic.com
   app:grockery:
     name: grockery

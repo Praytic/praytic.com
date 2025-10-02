@@ -1,20 +1,28 @@
 import * as gcp from "@pulumi/gcp";
-import * as portfolio from "./portfolio";
+import * as homepage from "./homepage";
 import * as places from "./places";
 import {computeService} from "./services"
 
 export const urlMap = new gcp.compute.URLMap("default-url-map", {
-  defaultService: portfolio.website.backendBucket.selfLink,
+  defaultService: homepage.website.backendBucket.selfLink,
   hostRules: [
     {
+      hosts: [homepage.website.domain],
+      pathMatcher: "homepage-matcher",
+    },
+    {
       hosts: [places.website.domain],
-      pathMatcher: "path-matcher-1",
+      pathMatcher: "places-matcher",
     },
   ],
   pathMatchers: [
     {
-      name: "path-matcher-1",
+      name: "homepage-matcher",
+      defaultService: places.website.backendBucket.selfLink,
+    },
+    {
+      name: "places-matcher",
       defaultService: places.website.backendBucket.selfLink,
     },
   ],
-}, { dependsOn: [computeService, places.website.backendBucket, portfolio.website.backendBucket]});
+}, { dependsOn: [computeService, places.website.backendBucket, homepage.website.backendBucket]});

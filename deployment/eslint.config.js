@@ -16,28 +16,24 @@ module.exports = [
       '@typescript-eslint': require('@typescript-eslint/eslint-plugin'),
     },
     rules: {
-      // Prevent cross-imports between subdirectories
       'import/no-restricted-paths': [
         'error',
         {
           zones: [
-            // grockery module restrictions - cannot import from other subdirs
             {
               target: './grockery/**/*',
-              from: ['./places/**/*', './portfolio/**/*'],
-              message: 'grockery module cannot import from other subdirectories (places, portfolio)',
+              from: ['./places/**/*', './homepage/**/*'],
+              message: 'grockery module cannot import from other subdirectories (places, homepage)',
             },
-            // places module restrictions - cannot import from other subdirs
             {
               target: './places/**/*',
-              from: ['./grockery/**/*', './portfolio/**/*'],
-              message: 'places module cannot import from other subdirectories (grockery, portfolio)',
+              from: ['./grockery/**/*', './homepage/**/*'],
+              message: 'places module cannot import from other subdirectories (grockery, homepage)',
             },
-            // portfolio module restrictions - cannot import from other subdirs
             {
-              target: './portfolio/**/*',
+              target: './homepage/**/*',
               from: ['./grockery/**/*', './places/**/*'],
-              message: 'portfolio module cannot import from other subdirectories (grockery, places)',
+              message: 'homepage module cannot import from other subdirectories (grockery, places)',
             },
           ],
         },

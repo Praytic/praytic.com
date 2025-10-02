@@ -28,7 +28,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Build
-        working-directory: ./portfolio
+        working-directory: ./homepage
         run: pnpm build
 
       - name: Authenticate to Google Cloud
@@ -37,9 +37,10 @@ jobs:
           workload_identity_provider: projects/370798368805/locations/global/workloadIdentityPools/github-actions-pool/providers/github-provider
           service_account: github-actions-deployer@praytic-global-473807.iam.gserviceaccount.com
 
-      - name: Upload portfolio to Cloud Storage
+      - name: Upload homepage to Cloud Storage
         uses: google-github-actions/upload-cloud-storage@v2
         with:
-          path: 'portfolio/build'
+          path: 'homepage/build'
           destination: 'portfolio.praytic.com'
+          parent: false
           process_gcloudignore: false
