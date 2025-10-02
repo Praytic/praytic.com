@@ -26,3 +26,4 @@ export const urlMap = new gcp.compute.URLMap("default-url-map", {
     },
   ],
 }, { dependsOn: [computeService, places.website.backendBucket, homepage.website.backendBucket]});
+

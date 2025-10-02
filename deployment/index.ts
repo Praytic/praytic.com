@@ -3,6 +3,8 @@ import * as githubAuth from "./githubAuth";
 import * as places from "./places/website";
 import * as homepage from "./homepage/website";
 
+export * as frontend from "./frontend";
+
 export const placesWebsite = {
   domain: places.domain,
   bucket: places.bucket.name,
