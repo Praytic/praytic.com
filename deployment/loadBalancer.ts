@@ -18,7 +18,7 @@ export const urlMap = new gcp.compute.URLMap("default-url-map", {
   pathMatchers: [
     {
       name: "homepage-matcher",
-      defaultService: places.website.backendBucket.selfLink,
+      defaultService: homepage.website.backendBucket.selfLink,
     },
     {
       name: "places-matcher",
