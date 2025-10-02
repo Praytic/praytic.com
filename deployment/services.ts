@@ -38,3 +38,13 @@ export const iamService = new gcp.projects.Service("iam", {
 export const stsService = new gcp.projects.Service("sts", {
   service: "sts.googleapis.com",
 });
+
+export const mapsJavascriptService = new gcp.projects.Service("maps-javascript", {
+  service: "maps-backend.googleapis.com",
+  disableOnDestroy: false,
+});
+
+export const placesService = new gcp.projects.Service("places", {
+  service: "places-backend.googleapis.com",
+  disableOnDestroy: false,
+});

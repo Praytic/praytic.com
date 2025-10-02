@@ -1,7 +1,8 @@
 import * as gcp from "@pulumi/gcp";
 import * as pulumi from "@pulumi/pulumi";
 import {app} from "./config";
-import {firebaseService, firestoreService} from "../services";
+import {firebaseService, firestoreService, mapsJavascriptService, placesService} from "../services";
+import {domain} from "./website";
 
 const gcpConfig = new pulumi.Config("gcp")
 const project = gcpConfig.require("project")
@@ -10,17 +11,10 @@ const firebaseProject = new gcp.firebase.Project(`${app.name}-firebase`, {
   project: project,
 }, { dependsOn: [firebaseService] });
 
-export const webApp = new gcp.firebase.WebApp(`${app.name}-webapp`, {
+const webApp = new gcp.firebase.WebApp(`${app.name}-webapp`, {
   project: project,
   displayName: app.name,
 }, { dependsOn: [firebaseProject] });
-
-export const webAppConfig = webApp.appId.apply(appId =>
-  gcp.firebase.getWebAppConfig({
-    webAppId: appId,
-    project: project,
-  })
-);
 
 const database = new gcp.firestore.Database(`${app.name}-database`, {
   name: "places",
@@ -29,9 +23,16 @@ const database = new gcp.firestore.Database(`${app.name}-database`, {
   concurrencyMode: "OPTIMISTIC",
   appEngineIntegrationMode: "DISABLED",
   deleteProtectionState: "DELETE_PROTECTION_DISABLED",
+  project: project
 }, {dependsOn: [firestoreService]});
 
-// Create Firestore Rules
+export const firebaseConfig = webApp.appId.apply(appId =>
+  gcp.firebase.getWebAppConfig({
+    webAppId: appId,
+    project: project,
+  })
+);
+
 const primary = new gcp.firebaserules.Ruleset("primary", {
   source: {
     files: [{
@@ -49,3 +50,24 @@ const release = new gcp.firebaserules.Release("primary", {
   rulesetName: primary.name,
   project: project,
 });
+
+const mapsApiKey = new gcp.projects.ApiKey(`${app.name}-maps-key`, {
+  displayName: `${app.name}-google-maps`,
+  project: project,
+  restrictions: {
+    apiTargets: [
+      {
+        service: "maps-backend.googleapis.com",
+      },
+      {
+        service: "places-backend.googleapis.com",
+      },
+    ],
+    browserKeyRestrictions: {
+      allowedReferrers: [
+        `https://${domain}/*`,
+        `http://localhost:3000/*`
+      ],
+    },
+  },
+}, { dependsOn: [mapsJavascriptService, placesService] });
