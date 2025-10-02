@@ -1,0 +1,15 @@
+export interface SocialLink {
+  platform: 'github' | 'itch' | 'youtube';
+  url: string;
+}
+
+export interface Project {
+  id: string;
+  icon: string;
+  title: string;
+  description: string;
+  socialLinks: SocialLink[];
+  status: 'Live' | 'Dev';
+  isDiscovered: boolean;
+  url?: string;
+}

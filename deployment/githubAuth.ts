@@ -15,7 +15,7 @@ const githubActionsServiceAccount = new gcp.serviceaccount.Account("github-actio
 
 const storageObjectsCreateBinding = new gcp.projects.IAMBinding("github-actions-storage-binding", {
   project: project,
-  role: "roles/storage.expressModeServiceInput",
+  role: "roles/storage.objectUser",
   members: [pulumi.interpolate`serviceAccount:${githubActionsServiceAccount.email}`],
 });
 
