@@ -10,7 +10,7 @@ export const placesWebsite = {
   domain: places.domain,
   bucket: places.bucket.name,
   bucketBackend: places.backendBucket.name,
-  database: placesFirebase
+  database: placesFirebase,
 };
 export const homepageWebsite = {
   domain: homepage.domain,

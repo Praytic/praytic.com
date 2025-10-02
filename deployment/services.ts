@@ -45,6 +45,11 @@ export const mapsJavascriptService = new gcp.projects.Service("maps-javascript",
 });
 
 export const placesService = new gcp.projects.Service("places", {
-  service: "places-backend.googleapis.com",
+  service: "places.googleapis.com",
+  disableOnDestroy: false,
+});
+
+export const apiKeysService = new gcp.projects.Service("apikeys", {
+  service: "apikeys.googleapis.com",
   disableOnDestroy: false,
 });

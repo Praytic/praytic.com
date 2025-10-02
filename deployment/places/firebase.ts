@@ -50,24 +50,3 @@ const release = new gcp.firebaserules.Release("primary", {
   rulesetName: primary.name,
   project: project,
 });
-
-const mapsApiKey = new gcp.projects.ApiKey(`${app.name}-maps-key`, {
-  displayName: `${app.name}-google-maps`,
-  project: project,
-  restrictions: {
-    apiTargets: [
-      {
-        service: "maps-backend.googleapis.com",
-      },
-      {
-        service: "places-backend.googleapis.com",
-      },
-    ],
-    browserKeyRestrictions: {
-      allowedReferrers: [
-        `https://${domain}/*`,
-        `http://localhost:3000/*`
-      ],
-    },
-  },
-}, { dependsOn: [mapsJavascriptService, placesService] });
