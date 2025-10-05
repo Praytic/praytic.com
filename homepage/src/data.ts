@@ -9,7 +9,8 @@ export const projects: Project[] = [
     socialLinks: [
       { platform: 'github', url: 'https://github.com/Praytic/youtd2' },
       { platform: 'itch', url: 'https://praytic.itch.io/youtd2' },
-      { platform: 'youtube', url: 'https://youtd2.com' }
+      { platform: 'website', url: 'https://youtd2.com' },
+      { platform: 'youtube', url: 'https://www.youtube.com/@YouTD2-zj5be' }
     ],
     status: 'Live',
     isDiscovered: true,
@@ -28,6 +29,30 @@ export const projects: Project[] = [
     url: 'https://github.com/Praytic/chatgpt-notion-auto-tagging'
   },
   {
+    id: 'postgresql-schema-migration',
+    icon: '🗄️',
+    title: 'PostgreSQL Schema Migration',
+    description: 'Automated PostgreSQL schema migration tool using Pulumi for infrastructure as code',
+    socialLinks: [
+      { platform: 'github', url: 'https://github.com/Praytic/postgresql-schema-migration-pulumi' }
+    ],
+    status: 'Live',
+    isDiscovered: true,
+    url: 'https://github.com/Praytic/postgresql-schema-migration-pulumi'
+  },
+  {
+    id: 'spotify-telegram-playlist',
+    icon: '🎵',
+    title: 'Spotify Telegram Playlist Creator',
+    description: 'Telegram bot that creates Spotify playlists from shared music links in chats',
+    socialLinks: [
+      { platform: 'github', url: 'https://github.com/Praytic/spotify-telegram-playlist-creator' }
+    ],
+    status: 'Live',
+    isDiscovered: true,
+    url: 'https://github.com/Praytic/spotify-telegram-playlist-creator'
+  },
+  {
     id: 'places',
     icon: '📍',
     title: 'Places',
@@ -38,41 +63,5 @@ export const projects: Project[] = [
     status: 'Live',
     isDiscovered: true,
     url: 'https://github.com/Praytic/places'
-  },
-  {
-    id: 'neural-network-visualizer',
-    icon: '❓',
-    title: 'Neural Network Visualizer',
-    description: 'Interactive neural network training visualization tool with real-time graph analytics',
-    socialLinks: [],
-    status: 'Dev',
-    isDiscovered: false
-  },
-  {
-    id: 'blockchain-portfolio-tracker',
-    icon: '❓',
-    title: 'Blockchain Portfolio Tracker',
-    description: 'Comprehensive cryptocurrency portfolio management app with advanced analytics',
-    socialLinks: [],
-    status: 'Dev',
-    isDiscovered: false
-  },
-  {
-    id: 'ar-furniture-planner',
-    icon: '❓',
-    title: 'AR Furniture Planner',
-    description: 'Augmented reality interior design and furniture placement tool for mobile devices',
-    socialLinks: [],
-    status: 'Dev',
-    isDiscovered: false
-  },
-  {
-    id: 'realtime-code-collaboration',
-    icon: '❓',
-    title: 'Real-time Code Collaboration',
-    description: 'Next-generation collaborative coding environment with AI assistance and live sharing',
-    socialLinks: [],
-    status: 'Dev',
-    isDiscovered: false
   }
 ];

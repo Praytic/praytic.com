@@ -1,5 +1,5 @@
 export interface SocialLink {
-  platform: 'github' | 'itch' | 'youtube';
+  platform: 'github' | 'itch' | 'youtube' | 'website';
   url: string;
 }
 
