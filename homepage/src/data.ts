@@ -17,6 +17,18 @@ export const projects: Project[] = [
     url: 'https://github.com/Praytic/youtd2'
   },
   {
+    id: 'places',
+    icon: '📍',
+    title: 'Places',
+    description: 'React app that allows to pin places on the map with custom emojis',
+    socialLinks: [
+      { platform: 'github', url: 'https://github.com/Praytic/places' }
+    ],
+    status: 'Live',
+    isDiscovered: true,
+    url: 'https://github.com/Praytic/places'
+  },
+  {
     id: 'chatgpt-notion-tagger',
     icon: '🏷️',
     title: 'ChatGPT Notion Tagger',
@@ -30,38 +42,26 @@ export const projects: Project[] = [
   },
   {
     id: 'postgresql-schema-migration',
-    icon: '🗄️',
-    title: 'PostgreSQL Schema Migration',
+    icon: '𝟎️𝟏',
+    title: 'Database migration via Pulumi',
     description: 'Automated PostgreSQL schema migration tool using Pulumi for infrastructure as code',
     socialLinks: [
       { platform: 'github', url: 'https://github.com/Praytic/postgresql-schema-migration-pulumi' }
     ],
-    status: 'Live',
+    status: 'PoC',
     isDiscovered: true,
     url: 'https://github.com/Praytic/postgresql-schema-migration-pulumi'
   },
   {
     id: 'spotify-telegram-playlist',
-    icon: '🎵',
+    icon: '𝟎️𝟏',
     title: 'Spotify Telegram Playlist Creator',
     description: 'Telegram bot that creates Spotify playlists from shared music links in chats',
     socialLinks: [
       { platform: 'github', url: 'https://github.com/Praytic/spotify-telegram-playlist-creator' }
     ],
-    status: 'Live',
+    status: 'PoC',
     isDiscovered: true,
     url: 'https://github.com/Praytic/spotify-telegram-playlist-creator'
-  },
-  {
-    id: 'places',
-    icon: '📍',
-    title: 'Places',
-    description: 'React app that allows to pin places on the map with custom emojis',
-    socialLinks: [
-      { platform: 'github', url: 'https://github.com/Praytic/places' }
-    ],
-    status: 'Live',
-    isDiscovered: true,
-    url: 'https://github.com/Praytic/places'
   }
 ];

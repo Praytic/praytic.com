@@ -9,7 +9,7 @@ export interface Project {
   title: string;
   description: string;
   socialLinks: SocialLink[];
-  status: 'Live' | 'Dev';
+  status: 'Live' | 'Dev' | 'PoC';
   isDiscovered: boolean;
   url?: string;
 }
