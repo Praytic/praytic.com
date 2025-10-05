@@ -9,7 +9,7 @@ function App() {
     <div className="App">
       <Header
         title="Praytic's Portfolio"
-        subtitle="A curated collection of my most successful projects. Only featuring apps with 10+ GitHub stars."
+        subtitle="A curated collection of my most successful projects."
       />
       <Portfolio projects={projects} />
     </div>
