@@ -20,7 +20,7 @@ export const projects: Project[] = [
     id: 'places',
     icon: '📍',
     title: 'Places',
-    description: 'React app that allows to pin places on the map with custom emojis',
+    description: 'React app with Firebase backend that allows to pin places on the map with custom emojis and share maps with other users',
     socialLinks: [
       { platform: 'github', url: 'https://github.com/Praytic/places' },
       { platform: 'website', url: 'https://places.praytic.com' }
