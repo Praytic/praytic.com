@@ -22,7 +22,8 @@ export const projects: Project[] = [
     title: 'Places',
     description: 'React app that allows to pin places on the map with custom emojis',
     socialLinks: [
-      { platform: 'github', url: 'https://github.com/Praytic/places' }
+      { platform: 'github', url: 'https://github.com/Praytic/places' },
+      { platform: 'website', url: 'https://places.praytic.com' }
     ],
     status: 'Live',
     isDiscovered: true,
