@@ -28,6 +28,18 @@ export const projects: Project[] = [
     url: 'https://github.com/Praytic/chatgpt-notion-auto-tagging'
   },
   {
+    id: 'places',
+    icon: '📍',
+    title: 'Places',
+    description: 'React app that allows to pin places on the map with custom emojis',
+    socialLinks: [
+      { platform: 'github', url: 'https://github.com/Praytic/places' }
+    ],
+    status: 'Live',
+    isDiscovered: true,
+    url: 'https://github.com/Praytic/places'
+  },
+  {
     id: 'neural-network-visualizer',
     icon: '❓',
     title: 'Neural Network Visualizer',
