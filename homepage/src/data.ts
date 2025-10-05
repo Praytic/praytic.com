@@ -48,7 +48,7 @@ export const projects: Project[] = [
     socialLinks: [
       { platform: 'github', url: 'https://github.com/Praytic/postgresql-schema-migration-pulumi' }
     ],
-    status: 'PoC',
+    status: 'Dev',
     isDiscovered: true,
     url: 'https://github.com/Praytic/postgresql-schema-migration-pulumi'
   },
@@ -60,7 +60,7 @@ export const projects: Project[] = [
     socialLinks: [
       { platform: 'github', url: 'https://github.com/Praytic/spotify-telegram-playlist-creator' }
     ],
-    status: 'PoC',
+    status: 'Dev',
     isDiscovered: true,
     url: 'https://github.com/Praytic/spotify-telegram-playlist-creator'
   }
