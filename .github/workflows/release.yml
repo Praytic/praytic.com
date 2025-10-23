@@ -36,8 +36,8 @@ jobs:
 
       - name: Convert policies to HTML
         run: |
-          npx markdown-to-html-cli policies/privacy-policy.md --output homepage/build/policies/privacy-policy.html --no-dark-mode --title "Praytic Privacy Statement"
-          npx markdown-to-html-cli policies/terms-of-service.md --output homepage/build/policies/terms-of-service.html --no-dark-mode --title "Praytic Terms of Service"
+          npx markdown-to-html-cli policies/privacy-policy.md --output homepage/build/policies/privacy-policy.html --no-dark-mode --title "Praytic Privacy Statement" --github-corners false --readme false
+          npx markdown-to-html-cli policies/terms-of-service.md --output homepage/build/policies/terms-of-service.html --no-dark-mode --title "Praytic Terms of Service" --github-corners false --readme false
 
       - name: Authenticate to Google Cloud
         uses: google-github-actions/auth@v2
