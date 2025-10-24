@@ -13,6 +13,16 @@ const Policy: React.FC<PolicyProps> = ({ policyFile, title }) => {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
+  // Convert heading text to URL-friendly ID
+  const slugify = (text: string): string => {
+    return text
+      .toLowerCase()
+      .replace(/[^\w\s-]/g, '')
+      .replace(/\s+/g, '-')
+      .replace(/-+/g, '-')
+      .trim();
+  };
+
   useEffect(() => {
     fetch(`/policies/${policyFile}`)
       .then((response) => {
@@ -52,7 +62,17 @@ const Policy: React.FC<PolicyProps> = ({ policyFile, title }) => {
   return (
     <div className="policy-container">
       <div className="policy-content">
-        <ReactMarkdown remarkPlugins={[remarkGfm]}>
+        <ReactMarkdown
+          remarkPlugins={[remarkGfm]}
+          components={{
+            h1: ({children}) => <h1 id={slugify(String(children))}>{children}</h1>,
+            h2: ({children}) => <h2 id={slugify(String(children))}>{children}</h2>,
+            h3: ({children}) => <h3 id={slugify(String(children))}>{children}</h3>,
+            h4: ({children}) => <h4 id={slugify(String(children))}>{children}</h4>,
+            h5: ({children}) => <h5 id={slugify(String(children))}>{children}</h5>,
+            h6: ({children}) => <h6 id={slugify(String(children))}>{children}</h6>,
+          }}
+        >
           {markdown}
         </ReactMarkdown>
       </div>
