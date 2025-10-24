@@ -65,7 +65,7 @@ I do not sell, rent, or share your Personal Data with third parties for marketin
 
 Praytic Services process Personal Data in compliance with the GDPR, ensuring a lawful basis for each processing activity. The basis varies depending on the data type and the context, including how you access the services. My processing activities typically fall under these lawful bases:
 
-* Contractual Necessity: Processing is required to fulfill my contractual duties to you, in accordance with the Praytic Terms of Service.
+* Contractual Necessity: Processing is required to fulfill my contractual duties to you, in accordance with the [Praytic Terms of Service](/policies/terms-of-service).
 * Legal Obligation: I process data when it's necessary to comply with applicable laws or to protect the rights, safety, and property of Praytic Services, users, or third parties.
 * Legitimate Interests: I process data for purposes that are in my legitimate interests, such as securing Praytic Services, communicating with you, and improving the Services. This is done only when these interests are not overridden by your data protection rights or your fundamental rights and freedoms.
 * Consent: I process data when you have explicitly consented to such processing. When I rely on consent as the legal basis, you have the right to withdraw your consent for data processing at any time. The procedures for withdrawal are detailed in this Statement and available on my website.
