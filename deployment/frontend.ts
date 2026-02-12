@@ -1,6 +1,5 @@
 import * as gcp from "@pulumi/gcp";
 import { urlMap } from "./loadBalancer";
-import * as homepage from "./homepage";
 import * as places from "./places";
 
 const staticIp = new gcp.compute.GlobalAddress("lb-static-ip", {
@@ -11,8 +10,6 @@ const sslCert = new gcp.compute.ManagedSslCertificate("https-ssl-cert", {
   name: "https-ssl-cert",
   managed: {
     domains: [
-      homepage.website.domain,
-      `www.${homepage.website.domain}`,
       places.website.domain,
     ],
   },
@@ -24,9 +21,18 @@ const httpsProxy = new gcp.compute.TargetHttpsProxy("https-proxy", {
   sslCertificates: [sslCert.id],
 });
 
+// HTTP to HTTPS redirect URL map
+const httpRedirectUrlMap = new gcp.compute.URLMap("http-redirect-url-map", {
+  name: "http-redirect-map",
+  defaultUrlRedirect: {
+    httpsRedirect: true,
+    stripQuery: false,
+  },
+});
+
 const httpProxy = new gcp.compute.TargetHttpProxy("http-proxy", {
   name: "http-proxy",
-  urlMap: urlMap.id,
+  urlMap: httpRedirectUrlMap.id,
 });
 
 

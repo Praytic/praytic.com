@@ -2,7 +2,6 @@ import * as gcp from "@pulumi/gcp";
 import * as pulumi from "@pulumi/pulumi";
 import {iamService, stsService} from "./services";
 import {app as places} from "./places/config"
-import {app as portfolio} from "./homepage/config"
 
 const gcpConfig = new pulumi.Config("gcp");
 const project = gcpConfig.require("project");
@@ -36,7 +35,7 @@ const workloadIdentityProvider = new gcp.iam.WorkloadIdentityPoolProvider("githu
     "attribute.actor": "assertion.actor",
     "attribute.aud": "assertion.aud",
   },
-  attributeCondition: `attribute.repository in ['${portfolio.repo}', '${places.repo}']`,
+  attributeCondition: `attribute.repository in ['${places.repo}']`,
   oidc: {
     issuerUri: "https://token.actions.githubusercontent.com",
   },
@@ -45,7 +44,7 @@ const workloadIdentityProvider = new gcp.iam.WorkloadIdentityPoolProvider("githu
 const workloadIdentityBinding = new gcp.serviceaccount.IAMBinding("github-actions-workload-identity", {
   serviceAccountId: githubActionsServiceAccount.name,
   role: "roles/iam.workloadIdentityUser",
-  members: [portfolio.repo, places.repo].map(repo =>
+  members: [places.repo].map(repo =>
     pulumi.interpolate`principalSet://iam.googleapis.com/${workloadIdentityPool.name}/attribute.repository/${repo}`
   ),
 }, { dependsOn: [workloadIdentityPool] });

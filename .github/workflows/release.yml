@@ -20,7 +20,7 @@ jobs:
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.HETZNER_HOST }}
-          username: ${{ secrets.HETZNER_USER }}
+          username: deploy
           key: ${{ secrets.HETZNER_SSH_KEY }}
           script: |
             cd /opt/praytic

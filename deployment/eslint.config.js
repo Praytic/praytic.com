@@ -22,18 +22,13 @@ module.exports = [
           zones: [
             {
               target: './grockery/**/*',
-              from: ['./places/**/*', './homepage/**/*'],
-              message: 'grockery module cannot import from other subdirectories (places, homepage)',
+              from: ['./places/**/*'],
+              message: 'grockery module cannot import from other subdirectories (places)',
             },
             {
               target: './places/**/*',
-              from: ['./grockery/**/*', './homepage/**/*'],
-              message: 'places module cannot import from other subdirectories (grockery, homepage)',
-            },
-            {
-              target: './homepage/**/*',
-              from: ['./grockery/**/*', './places/**/*'],
-              message: 'homepage module cannot import from other subdirectories (grockery, places)',
+              from: ['./grockery/**/*'],
+              message: 'places module cannot import from other subdirectories (grockery)',
             },
           ],
         },
