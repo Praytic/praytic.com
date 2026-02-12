@@ -1,0 +1,9 @@
+.git
+.github
+.env
+node_modules
+deployment/
+*.md
+.dockerignore
+.gitignore
+pnpm-workspace.yaml

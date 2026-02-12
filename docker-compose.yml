@@ -1,0 +1,33 @@
+services:
+  caddy:
+    image: caddy:2-alpine
+    container_name: praytic-caddy
+    restart: unless-stopped
+    network_mode: host
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - caddy_data:/data
+      - caddy_config:/config
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  homepage:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: praytic-homepage
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8080:80"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+volumes:
+  caddy_data:
+  caddy_config:
