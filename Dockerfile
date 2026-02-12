@@ -1,12 +1,11 @@
 # Stage 1: Build
 FROM node:20-alpine AS builder
 WORKDIR /app
-COPY .nvmrc package.json pnpm-lock.yaml ./
+COPY .nvmrc package.json pnpm-lock.yaml pnpm-workspace.yaml ./
+COPY homepage/ ./homepage/
 RUN npm install -g pnpm@9.14.4
 RUN pnpm install --frozen-lockfile
-COPY homepage/ ./homepage/
-WORKDIR /app/homepage
-RUN pnpm build
+RUN pnpm --filter homepage build
 
 # Stage 2: Serve
 FROM nginx:alpine
