@@ -1,4 +1,0 @@
-praytic.com {
-    reverse_proxy localhost:8081
-    encode gzip
-}
