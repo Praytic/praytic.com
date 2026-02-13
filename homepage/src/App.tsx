@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Portfolio from './components/Portfolio';
+import Footer from './components/Footer';
 import Policy from './components/Policy';
 import { projects } from './data';
 import './App.css';
@@ -14,6 +15,7 @@ function HomePage() {
         subtitle="A curated collection of my most successful projects."
       />
       <Portfolio projects={projects} />
+      <Footer />
     </>
   );
 }
