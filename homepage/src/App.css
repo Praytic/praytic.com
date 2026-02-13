@@ -334,6 +334,25 @@
 }
 
 /* ==========================================
+   GOOGLE DATA NOTICE
+   ========================================== */
+
+.google-data-notice {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem 3rem 2rem;
+    text-align: center;
+}
+
+.google-data-notice p {
+    font-size: 0.7rem;
+    line-height: 1.6;
+    color: #c8c6c3;
+    margin: 0;
+    font-weight: 300;
+}
+
+/* ==========================================
    RESPONSIVE DESIGN
    ========================================== */
 
